@@ -1,15 +1,13 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <>
-      <div className="flex h-screen justify-center items-center">
-        <div>
-          <h1 className="text-7xl text-green-400 font-semibold">Stop guessing in&nbsp;the&nbsp;gym</h1>
-          <p className="my-10">Work one-on-one with Piotr Moj in the Aberdeen area</p>
-          <button className="">Book your free consultation</button>
-        </div>
-        <div className="w-100 h-100"></div>
+      <h1 className="mt-20 leading-20 text-center text-6xl text-green-400 font-semibold">Stop guessing in the gym</h1>
+      <p className="mt-5 text-lg text-center">Work one-on-one with Piotr Moj</p>
+      <div className="mt-5 text-center">
+        <Button>Book your free consultation</Button>
       </div>
     </>
   );
