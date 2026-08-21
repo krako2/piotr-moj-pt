@@ -1,8 +1,24 @@
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
 export default function Testimonials() {
   return (
-    <section className="px-5">
-      <h2 className="mt-5 text-2xl font-semibold text-green-400">Testimonials</h2>
-      <p className="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita eos odio, placeat minus architecto dignissimos ullam excepturi deleniti fugiat illum aspernatur odit, laboriosam vel saepe laborum. Possimus impedit culpa magni.</p>
+    <section className="p-5">
+      <h2 className="text-2xl font-semibold text-green-400">Testimonials</h2>
+      <Carousel className="p-5">
+        <CarouselContent>
+          <CarouselItem className="sm:basis-1/2">
+            <div className="h-100 bg-(--placeholder)"></div>
+          </CarouselItem>
+          <CarouselItem className="sm:basis-1/2">
+            <div className="h-100 bg-(--placeholder)"></div>
+          </CarouselItem>
+          <CarouselItem className="sm:basis-1/2">
+            <div className="h-100 bg-(--placeholder)"></div>
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </section>
   );
 }
