@@ -10,7 +10,7 @@ export default function Hero() {
           <Button size="lg">Book your free consultation</Button>
         </div>
       </section>
-      <section className="p-5 bg-gray-400 w-full h-120">
+      <section className="p-5 bg-(--placeholder) w-full h-120">
 
       </section>
     </div>

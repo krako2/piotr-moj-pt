@@ -2,7 +2,7 @@ export default function About() {
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center">
       <div className="p-5 w-full">
-        <div className="p-5 bg-gray-400 w-full h-60">
+        <div className="p-5 bg-(--placeholder) w-full h-60">
 
         </div>
       </div>
