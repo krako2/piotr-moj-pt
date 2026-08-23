@@ -16,8 +16,8 @@ export default function Testimonials() {
             <div className="h-100 bg-(--placeholder)"></div>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious suppressHydrationWarning />
-        <CarouselNext suppressHydrationWarning />
+        <CarouselPrevious suppressHydrationWarning className="left-10 top-80" />
+        <CarouselNext suppressHydrationWarning className="right-10 top-80" />
       </Carousel>
     </section>
   );
