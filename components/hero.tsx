@@ -19,6 +19,7 @@ export default function Hero() {
           alt="Piotrek smiling in his car wearing a black hoodie"
           width={heroPhotoWidth}
           height={heroPhotoHeight}
+          loading="eager"
         />
       </section>
     </div>
