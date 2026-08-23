@@ -5,7 +5,7 @@ export default function Testimonials() {
   return (
     <section className="p-5">
       <h2 className="text-2xl font-semibold text-green-400">Testimonials</h2>
-      <Carousel className="mt-3">
+      <Carousel className="mt-5">
         <CarouselContent>
           <CarouselItem className="sm:basis-1/2">
             <TestimonialCard title="Nina S.">
