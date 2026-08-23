@@ -1,6 +1,9 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
+  const heroPhotoWidth: number = 2160;
+  const heroPhotoHeight: number = 2880;
   return (
     <div className="flex flex-col p-5 sm:flex-row justify-center items-center">
       <section className="p-5 w-full">
@@ -10,8 +13,13 @@ export default function Hero() {
           <Button size="lg">Book your free consultation</Button>
         </div>
       </section>
-      <section className="p-5 bg-(--placeholder) w-full h-120">
-
+      <section className="p-5 bg-(--placeholder) w-full">
+        <Image
+          src="/hero-photo.jpg"
+          alt="Piotrek smiling in his car wearing a black hoodie"
+          width={heroPhotoWidth}
+          height={heroPhotoHeight}
+        />
       </section>
     </div>
   );
