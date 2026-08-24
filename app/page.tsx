@@ -9,11 +9,13 @@ export default function Home() {
   return (
     <>
       <AnimatedBackground />
-      <Hero />
-      <About />
-      <Testimonials />
-      <Contact />
-      <Footer />
+      <main>
+        <Hero />
+        <About />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </main>
     </>
   );
 }
