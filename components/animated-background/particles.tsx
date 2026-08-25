@@ -1,10 +1,11 @@
 import { useRef } from "react";
-import { Mesh } from "three";
+import { InstancedMesh } from "three";
 import { useFrame } from "@react-three/fiber";
-
+import { Instances, Instance } from "@react-three/drei";
 
 export default function Particles() {
-  const cube = useRef<Mesh>(null);
+  const particleCount: number = 1000;
+  const cube = useRef<InstancedMesh>(null);
 
   useFrame(({ clock }) => {
     if (cube.current) {
@@ -14,11 +15,12 @@ export default function Particles() {
   });
 
   return (
-    <mesh ref={cube}>
+    <Instances ref={cube} limit={particleCount}>
       <ambientLight intensity={0.3} />
       <directionalLight intensity={1.0} color="white" position={[0, 3, 5]} />
       <boxGeometry args={[0.1, 0.1, 0.1]} />
       <meshStandardMaterial color="#06df72" />
-    </mesh>
+      <Instance />
+    </Instances>
   );
 }
