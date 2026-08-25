@@ -4,6 +4,7 @@ import Testimonials from "@/components/testimonials";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import AnimatedBackground from "@/components/animated-background/animated-background";
+import ConsultationForm from "@/components/consultation-form";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Contact />
         <Footer />
       </main>
+      <ConsultationForm />
     </>
   );
 }
