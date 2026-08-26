@@ -33,7 +33,7 @@ export default function Testimonials() {
             <Button onClick={() => carouselApi?.scrollTo(carouselCurrent - 1)}>Previous</Button>
             <Button onClick={() => carouselApi?.scrollTo(carouselCurrent + 1)}>Next</Button>
           </section>
-        ) : (<></>)}
+        ) : null}
     </section>
   );
 }
