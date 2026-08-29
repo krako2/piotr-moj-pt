@@ -4,20 +4,24 @@ import About from "@/components/about/about";
 import Testimonials from "@/components/testimonials/testimonials";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
-import ConsultationForm from "@/components/consultation-form";
+import ConsultationForm from "@/components/consultation/consultation-form";
+
+import StoreProvider from "@/state/store-provider";
 
 export default function Home() {
   return (
     <>
-      <AnimatedBackground />
-      <main>
-        <Hero />
-        <About />
-        <Testimonials />
-        <Contact />
-        <Footer />
-      </main>
-      <ConsultationForm />
+      <StoreProvider>
+        <AnimatedBackground />
+        <main>
+          <Hero />
+          <About />
+          <Testimonials />
+          <Contact />
+          <Footer />
+        </main>
+        <ConsultationForm />
+      </StoreProvider>
     </>
   );
 }
