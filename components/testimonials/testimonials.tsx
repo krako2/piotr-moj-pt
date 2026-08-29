@@ -1,7 +1,7 @@
 "use client"
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from "@/components/ui/carousel";
-import TestimonialCard from "@/components/testimonial-card";
+import TestimonialCard from "@/components/testimonials/testimonial-card";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 

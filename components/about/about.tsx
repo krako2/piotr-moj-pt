@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ProgressCard from "@/components/progress-card";
+import ProgressCard from "@/components/about/progress-card";
 
 export default function About() {
   const beforePhotoWidth: number = 1024;
