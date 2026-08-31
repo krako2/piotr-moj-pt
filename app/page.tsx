@@ -19,8 +19,8 @@ export default function Home() {
           <Testimonials />
           <Contact />
           <Footer />
-          <ConsultationForm />
         </main>
+        <ConsultationForm />
       </StoreProvider>
     </>
   );

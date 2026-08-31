@@ -1,53 +1,36 @@
 "use client"
 
+import Form from "next/form";
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
 import { hide } from "@/state/form/form-slice";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { useEffect, useState } from "react";
 
 export default function ConsultationForm() {
   const showing = useSelector((state: RootState) => state.form.showing);
   const dispatch = useDispatch();
 
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-  const [carouselCurrent, setCarouselCurrent] = useState(0);
-
-  useEffect(() => {
-    if (!carouselApi) return;
-
-    setCarouselCurrent(carouselApi.selectedScrollSnap());
-
-    carouselApi.on("select", () => {
-      setCarouselCurrent(carouselApi.selectedScrollSnap());
-    });
-  }, [carouselApi]);
-
   if (!showing) return null;
 
   return (
-    <>
-      <div className="fixed top-0 left-0 w-full h-screen bg-(--placeholder) opacity-(--transparent-background-opacity) fade-in-transparent-background" />
-      <div className="flex justify-center fixed top-0 left-0 w-full h-screen fade-in">
-        <div className="flex justify-center items-center max-w-180 w-full p-5">
-          <div className="relative bg-(--placeholder) p-5 w-full">
-            <Button className="absolute right-5 z-1" onClick={() => dispatch(hide())}>Close</Button>
-            <Carousel setApi={setCarouselApi} opts={{ align: "start", loop: true }}>
-              <CarouselContent>
-                <CarouselItem>
-                  <div className="flex justify-center items-center text-center">
-                    <h1 className="text-2xl text-green-400 font-semibold">What is your email address?</h1>
-                  </div>
-                </CarouselItem>
-              </CarouselContent>
-            </Carousel>
-            <section className="mt-3 flex justify-center items-center">
-              <Button onClick={() => carouselApi?.scrollTo(carouselCurrent + 1)}>Next</Button>
-            </section>
+    <div className="fixed top-0 left-0 flex justify-center items-center w-full h-screen p-5">
+      <div className="flex justify-center items-center relative bg-(--placeholder) p-5 max-w-180 w-full h-full rounded-2xl">
+        <Button className="absolute top-5 right-5" onClick={() => dispatch(hide())}>Close</Button>
+        <Form action="/api" formMethod="POST">
+          <label htmlFor="email" className="flex justify-center items-center text-center">
+            <h1 className="text-4xl text-green-400 font-semibold">What is your email address?</h1>
+          </label>
+          <div className="my-5 flex justify-center">
+            <input className="bg-(--placeholder-light) p-2 rounded-lg" size={30} type="email" name="email" />
           </div>
-        </div>
+          <label htmlFor="name" className="flex justify-center items-center text-center">
+            <h1 className="text-4xl text-green-400 font-semibold">What is your first name?</h1>
+          </label>
+          <div className="my-5 flex justify-center">
+            <input className="bg-(--placeholder-light) p-2 rounded-lg" size={30} type="text" name="name" />
+          </div>
+        </Form>
       </div>
-    </>
+    </div>
   );
 }
