@@ -18,6 +18,7 @@ export default function Testimonials() {
       setCarouselCurrent(carouselApi.selectedScrollSnap());
     });
   }, [carouselApi]);
+
   return (
     <section className="p-5">
       <h2 className="text-2xl font-semibold text-green-400">Testimonials</h2>
