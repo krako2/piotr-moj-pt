@@ -26,8 +26,21 @@ main {
   }
 }
 
+@keyframes fade-in-transparent-background {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: var(--transparent-background-opacity);
+  }
+}
+
 .fade-in {
-  animation: fade-in 3s ease-out;
+  animation: fade-in 1s ease-out;
+}
+
+.fade-in-transparent-background {
+  animation: fade-in-transparent-background 1s ease-out;
 }
 
 h1, h2 {
@@ -86,6 +99,7 @@ h1, h2 {
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(20.345% 0.00629 156.668);
   --placeholder: oklch(20.345% 0.00629 156.668);
+  --transparent-background-opacity: 80%;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
