@@ -4,7 +4,9 @@ Landing page for Piotrek Moj's personal training website.
 
 ## Build
 
-A Dockerfile is included for a simple and secure development process. With Docker installed, open the directory of the cloned repo in a terminal and run:
+A Dockerfile is included for a simple and secure development process. I recommend using VSCode with the Microsoft Dev Containers extension to access the container once it's running.
+
+With Docker installed, open the directory of the cloned repo in a terminal and run:
 
 ``docker build -t piotr-moj-pt .``
 
