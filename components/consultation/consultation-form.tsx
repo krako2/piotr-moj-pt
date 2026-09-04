@@ -21,13 +21,7 @@ export default function ConsultationForm() {
             <h1 className="text-4xl text-green-400 font-semibold">What is your email address?</h1>
           </label>
           <div className="my-5 flex justify-center">
-            <input className="bg-(--placeholder-light) p-2 rounded-lg" size={30} type="email" name="email" />
-          </div>
-          <label htmlFor="name" className="flex justify-center items-center text-center">
-            <h1 className="text-4xl text-green-400 font-semibold">What is your first name?</h1>
-          </label>
-          <div className="my-5 flex justify-center">
-            <input className="bg-(--placeholder-light) p-2 rounded-lg" size={30} type="text" name="name" />
+            <input className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light)" size={30} type="email" name="email" />
           </div>
         </Form>
       </div>
