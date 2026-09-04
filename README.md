@@ -17,3 +17,7 @@ Docker will build the image. Once it's done, run:
 This will start a container running the site. You can access it through your browser by navigating to `http://localhost:3000`. Once you're done, you can remove both the container and image by running:
 
 ``docker stop piotr-moj-pt && docker rm piotr-moj-pt && docker rmi piotr-moj-pt``
+
+## Fixes
+
+If you're using VSCode, IntelliSense won't work for CSS files because I enabled a file association for CSS files and Tailwind. You can fix this by getting the official Tailwind CSS IntelliSense extension. The extension will get installed to the container, not your local installation of VSCode, as long as you have the container open through Dev Containers.
