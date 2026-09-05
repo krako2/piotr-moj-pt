@@ -33,12 +33,13 @@ export default function Testimonials() {
           </TestimonialCard>
         </CarouselContent>
       </Carousel>
-      {carouselApi?.canScrollNext() ? (
-          <section className="mt-3 flex justify-center items-center">
-            <Button onClick={() => carouselApi?.scrollTo(carouselCurrent - 1)}>Previous</Button>
-            <Button onClick={() => carouselApi?.scrollTo(carouselCurrent + 1)}>Next</Button>
-          </section>
-        ) : null}
+      {
+        carouselApi?.canScrollNext() &&
+        <section className="mt-3 flex justify-center items-center">
+          <Button onClick={() => carouselApi?.scrollTo(carouselCurrent - 1)}>Previous</Button>
+          <Button onClick={() => carouselApi?.scrollTo(carouselCurrent + 1)}>Next</Button>
+        </section>
+      }
     </section>
   );
 }
