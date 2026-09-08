@@ -20,9 +20,7 @@ export default function ConsultationForm() {
 
   let currentPage: Page = Page.Email;
 
-  if (!showing) return null;
-
-  return (
+  return showing ? (
     <div className="fixed top-0 left-0 flex justify-center items-center w-full h-screen p-5">
       <div className="flex justify-center items-center relative bg-(--placeholder) p-5 max-w-180 w-full h-full rounded-2xl">
         <Button className="absolute top-5 right-5" onClick={() => dispatch(hide())}>Close</Button>
@@ -34,5 +32,5 @@ export default function ConsultationForm() {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 }
