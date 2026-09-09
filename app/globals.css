@@ -19,7 +19,7 @@ main {
 
 @keyframes fade-in {
   from {
-    scale: 60%;
+    scale: 80%;
     opacity: 0;
   }
   to {
@@ -29,7 +29,7 @@ main {
 }
 
 .fade-in {
-  animation: fade-in 0.5s ease-out;
+  animation: fade-in 2s ease-out;
 }
 
 h1, h2 {
