@@ -21,14 +21,16 @@ export default function ConsultationForm() {
   let currentPage: Page = Page.Email;
 
   return showing ? (
-    <div className="fixed top-0 left-0 flex justify-center items-center w-full h-screen p-5">
+    <div className="fixed top-0 left-0 flex justify-center items-center w-screen h-screen p-5">
       <div className="flex justify-center items-center relative bg-(--placeholder) p-5 max-w-180 w-full h-full rounded-2xl">
         <Button className="absolute top-5 right-5" onClick={() => dispatch(hide())}>Close</Button>
-        <label htmlFor="email" className="flex justify-center items-center text-center">
-          <h1 className="text-4xl text-green-400 font-semibold">What is your email address?</h1>
-        </label>
-        <div className="my-5 flex justify-center">
-          <input className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light)" size={30} type="email" name="email" />
+        <div>
+          <label htmlFor="email" className="flex justify-center items-center text-center">
+            <h1 className="text-4xl text-green-400 font-semibold">What is your email address?</h1>
+          </label>
+          <div className="my-5 flex justify-center">
+            <input className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light)" type="email" name="email" />
+          </div>
         </div>
       </div>
     </div>
