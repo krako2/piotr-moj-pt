@@ -1,36 +1,45 @@
 "use client"
 
-import Form from "next/form";
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
 import { hide } from "@/state/form/form-slice";
+import { Page } from "@/state/form/form-slice";
+
 import { Button } from "@/components/ui/button";
 
+import EmailPage from "@/components/consultation/pages/email-page";
+import NamePage from "@/components/consultation/pages/name-page";
+import EnquiryPage from "@/components/consultation/pages/enquiry-page";
+import MessagePage from "@/components/consultation/pages/message-page";
+import SummaryPage from "@/components/consultation/pages/summary-page";
+
 export default function ConsultationForm() {
-  const showing = useSelector((state: RootState) => state.form.showing);
+  const showing: boolean = useSelector((state: RootState) => state.form.showing);
+  const page: Page = useSelector((state: RootState) => state.form.page);
+
   const dispatch = useDispatch();
-
-  enum Page {
-    Email,
-    Name,
-    EnquiryType,
-    Message,
-    Summary
-  };
-
-  let currentPage: Page = Page.Email;
 
   return showing ? (
     <div className="fixed top-0 left-0 flex justify-center items-center w-screen h-screen p-5">
       <div className="flex justify-center items-center relative bg-(--placeholder) p-5 max-w-180 w-full h-full rounded-2xl">
         <Button className="absolute top-5 right-5" onClick={() => dispatch(hide())}>Close</Button>
         <div>
-          <label htmlFor="email" className="flex justify-center items-center text-center">
-            <h1 className="text-4xl text-green-400 font-semibold">What is your email address?</h1>
-          </label>
-          <div className="my-5 flex justify-center">
-            <input className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light)" type="email" name="email" />
-          </div>
+          {(() => {
+            switch (page) {
+            case Page.Email:
+              return <EmailPage />;
+            case Page.Name:
+              return <NamePage />;
+            case Page.Enquiry:
+              return <EnquiryPage />
+            case Page.Message:
+              return <MessagePage />
+            case Page.Summary:
+              return <SummaryPage />
+            default:
+              return <></>;
+            }
+          })()}
         </div>
       </div>
     </div>

@@ -1,12 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
+export enum Page {
+  Email,
+  Name,
+  Enquiry,
+  Message,
+  Summary
+};
+
 export interface FormState {
-  showing: boolean
+  showing: boolean,
+  page: Page
 };
 
 const initialState: FormState = {
-  showing: false
+  showing: false,
+  page: Page.Email
 };
 
 const formSlice = createSlice({
@@ -18,9 +28,12 @@ const formSlice = createSlice({
     },
     hide: (state) => {
       state.showing = false;
+    },
+    setPage: (state, action: PayloadAction<Page>) => {
+      state.page = action.payload;
     }
   }
 });
 
-export const { show, hide } = formSlice.actions;
+export const { show, hide, setPage } = formSlice.actions;
 export default formSlice.reducer;
