@@ -4,7 +4,7 @@ import { Page, setPage } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function EmailPage() {
   const page: Page = useSelector((state: RootState) => state.form.page);
@@ -29,7 +29,17 @@ export default function EmailPage() {
         <h1 className="text-4xl text-green-400 font-semibold">What is your email address?</h1>
       </label>
       <div className="my-10 flex justify-center">
-        <input ref={emailInputRef} onChange={checkIfTheNextPageShouldBeBlocked} className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light) w-full max-w-100" type="email" name="email" />
+        <input ref={emailInputRef}
+               onKeyDown={(e) => {
+                checkIfTheNextPageShouldBeBlocked();
+                if (e.key === "Enter" && !blocked) {
+                  dispatch(setPage(Page.Name));
+                }
+               }}
+               className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light) w-full max-w-100"
+               type="email"
+               name="email"
+         />
       </div>
       <div className="flex justify-center">
         {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={() => dispatch(setPage(Page.Name))}>Next</Button>}
