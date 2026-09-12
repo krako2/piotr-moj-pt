@@ -9,6 +9,32 @@ export enum Page {
   Summary
 };
 
+export enum ContactMethod {
+  WhatsApp,
+  Instagram,
+  Email
+};
+
+export enum Experience {
+  Beginner,
+  SomeExperience,
+  Experienced
+};
+
+export enum Investment {
+  Willing,
+  NeedMoreInfo
+};
+
+export type FormData = {
+  name: string,
+  preferredContactMethod: ContactMethod,
+  experience: Experience,
+  goal: string,
+  biggestStruggle: string,
+  willingToInvest: Investment
+};
+
 export interface FormState {
   showing: boolean,
   page: Page
