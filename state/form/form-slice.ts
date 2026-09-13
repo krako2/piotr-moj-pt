@@ -12,25 +12,14 @@ export enum Page {
   Summary,
 };
 
-export enum Experience {
-  Beginner,
-  SomeExperience,
-  Experienced,
-};
-
-export enum Investment {
-  Willing,
-  NeedMoreInfo,
-};
-
 export type FormData = {
   name: string
   preferredContactMethod: string
   preferredContact: string
-  experience: Experience
+  experience: string
   goal: string
   biggestStruggle: string
-  willingToInvest: Investment
+  willingToInvest: string
 };
 
 export interface FormState {
@@ -46,10 +35,10 @@ const initialState: FormState = {
     name: "",
     preferredContactMethod: "Email",
     preferredContact: "",
-    experience: Experience.Beginner,
+    experience: "Beginner",
     goal: "",
     biggestStruggle: "",
-    willingToInvest: Investment.NeedMoreInfo
+    willingToInvest: "Need more info",
   },
 };
 
