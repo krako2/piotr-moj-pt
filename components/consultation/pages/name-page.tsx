@@ -15,8 +15,7 @@ export default function NamePage() {
 
   function checkIfTheNextPageShouldBeBlocked() {
     if (!nameInputRef.current) return;
-    // I took this regex pattern from StackOverflow: https://stackoverflow.com/a/50914014
-    if (nameInputRef.current.validity.valid && nameInputRef.current.value !== "") {
+    if (nameInputRef.current.value !== "") {
       setBlocked(false);
     } else {
       setBlocked(true);
@@ -31,19 +30,18 @@ export default function NamePage() {
       <div className="my-10 flex justify-center">
         <input ref={nameInputRef}
                onKeyDown={(e) => {
-                checkIfTheNextPageShouldBeBlocked();
                 if (e.key === "Enter" && !blocked) {
-                  dispatch(setPage(Page.Enquiry));
+                  dispatch(setPage(Page.PreferredContactSelection));
                 }
                }}
+               onChange={checkIfTheNextPageShouldBeBlocked}
                className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light) w-full max-w-100"
                type="text"
                name="name"
          />
       </div>
       <div className="flex justify-center">
-        <Button onClick={() => dispatch(setPage(Page.Email))}>Back</Button>
-        {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={() => dispatch(setPage(Page.Enquiry))}>Next</Button>}
+        {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={() => dispatch(setPage(Page.PreferredContactSelection))}>Next</Button>}
       </div>
     </>
   );

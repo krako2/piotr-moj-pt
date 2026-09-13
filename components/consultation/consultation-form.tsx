@@ -7,10 +7,13 @@ import { Page } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
-import EmailPage from "@/components/consultation/pages/email-page";
 import NamePage from "@/components/consultation/pages/name-page";
-import EnquiryPage from "@/components/consultation/pages/enquiry-page";
-import MessagePage from "@/components/consultation/pages/message-page";
+import PreferredContactSelectionPage from "@/components/consultation/pages/preferred-contact-selection-page";
+import PreferredContactPage from "@/components/consultation/pages/preferred-contact-page";
+import ExperiencePage from "@/components/consultation/pages/experience-page";
+import GoalPage from "@/components/consultation/pages/goal-page";
+import BiggestStrugglePage from "@/components/consultation/pages/biggest-struggle-page";
+import WillingToInvestPage from "@/components/consultation/pages/willing-to-invest-page";
 import SummaryPage from "@/components/consultation/pages/summary-page";
 
 export default function ConsultationForm() {
@@ -26,16 +29,22 @@ export default function ConsultationForm() {
         <div>
           {(() => {
             switch (page) {
-            case Page.Email:
-              return <EmailPage />;
             case Page.Name:
               return <NamePage />;
-            case Page.Enquiry:
-              return <EnquiryPage />
-            case Page.Message:
-              return <MessagePage />
+            case Page.PreferredContactSelection:
+              return <PreferredContactSelectionPage />;
+            case Page.PreferredContact:
+              return <PreferredContactPage />;
+            case Page.Experience:
+              return <ExperiencePage />;
+            case Page.Goal:
+              return <GoalPage />;
+            case Page.BiggestStruggle:
+              return <BiggestStrugglePage />;
+            case Page.WillingToInvest:
+              return <WillingToInvestPage />;
             case Page.Summary:
-              return <SummaryPage />
+              return <SummaryPage />;
             default:
               return <></>;
             }
