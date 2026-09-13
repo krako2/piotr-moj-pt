@@ -12,12 +12,6 @@ export enum Page {
   Summary,
 };
 
-export enum ContactMethod {
-  Email,
-  Instagram,
-  WhatsApp,
-};
-
 export enum Experience {
   Beginner,
   SomeExperience,
@@ -31,7 +25,7 @@ export enum Investment {
 
 export type FormData = {
   name: string
-  preferredContactMethod: ContactMethod
+  preferredContactMethod: string
   preferredContact: string
   experience: Experience
   goal: string
@@ -50,7 +44,7 @@ const initialState: FormState = {
   page: Page.Name,
   data: {
     name: "",
-    preferredContactMethod: ContactMethod.Email,
+    preferredContactMethod: "Email",
     preferredContact: "",
     experience: Experience.Beginner,
     goal: "",
