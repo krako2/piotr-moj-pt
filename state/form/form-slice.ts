@@ -70,11 +70,11 @@ const formSlice = createSlice({
     setPage: (state, action: PayloadAction<Page>) => {
       state.page = action.payload;
     },
-    addData: (state, action: PayloadAction<FormData>) => {
+    setData: (state, action: PayloadAction<FormData>) => {
       state.data = action.payload;
     }
   }
 });
 
-export const { show, hide, setPage } = formSlice.actions;
+export const { show, hide, setPage, setData } = formSlice.actions;
 export default formSlice.reducer;
