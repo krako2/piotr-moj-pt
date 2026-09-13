@@ -2,47 +2,59 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export enum Page {
-  Email,
   Name,
-  Enquiry,
-  Message,
-  Summary
+  PreferredContactSelection,
+  PreferredContact,
+  Experience,
+  Goal,
+  BiggestStruggle,
+  WillingToInvest,
+  Summary,
 };
 
 export enum ContactMethod {
-  WhatsApp,
+  Email,
   Instagram,
-  Email
+  WhatsApp,
 };
 
 export enum Experience {
   Beginner,
   SomeExperience,
-  Experienced
+  Experienced,
 };
 
 export enum Investment {
   Willing,
-  NeedMoreInfo
+  NeedMoreInfo,
 };
 
 export type FormData = {
-  name: string,
-  preferredContactMethod: ContactMethod,
-  experience: Experience,
-  goal: string,
-  biggestStruggle: string,
+  name: string
+  preferredContactMethod: ContactMethod
+  experience: Experience
+  goal: string
+  biggestStruggle: string
   willingToInvest: Investment
 };
 
 export interface FormState {
-  showing: boolean,
+  showing: boolean
   page: Page
+  data: FormData
 };
 
 const initialState: FormState = {
   showing: false,
-  page: Page.Email
+  page: Page.Name,
+  data: {
+    name: "",
+    preferredContactMethod: ContactMethod.Email,
+    experience: Experience.Beginner,
+    goal: "",
+    biggestStruggle: "",
+    willingToInvest: Investment.NeedMoreInfo
+  },
 };
 
 const formSlice = createSlice({
@@ -57,6 +69,9 @@ const formSlice = createSlice({
     },
     setPage: (state, action: PayloadAction<Page>) => {
       state.page = action.payload;
+    },
+    addData: (state, action: PayloadAction<FormData>) => {
+      state.data = action.payload;
     }
   }
 });
