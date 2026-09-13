@@ -32,6 +32,7 @@ export enum Investment {
 export type FormData = {
   name: string
   preferredContactMethod: ContactMethod
+  preferredContact: string
   experience: Experience
   goal: string
   biggestStruggle: string
@@ -50,6 +51,7 @@ const initialState: FormState = {
   data: {
     name: "",
     preferredContactMethod: ContactMethod.Email,
+    preferredContact: "",
     experience: Experience.Beginner,
     goal: "",
     biggestStruggle: "",
