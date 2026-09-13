@@ -18,9 +18,9 @@ export default function PreferredContactSelectionPage() {
                 id="preferred-contact-selection"
                 className="bg-(--placeholder-light) p-3 rounded-2xl w-full max-w-60 focus:outline-2 focus:outline-(--placeholder-extra-light) appearance-none"
         >
-          <option value="email">Email</option>
-          <option value="instagram">Instagram</option>
-          <option value="whatsapp">WhatsApp</option>
+          <option>Email</option>
+          <option>Instagram</option>
+          <option>WhatsApp</option>
         </select>
       </div>
       <div className="flex justify-center">
