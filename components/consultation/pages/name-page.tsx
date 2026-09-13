@@ -1,13 +1,14 @@
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { Page, setPage } from "@/state/form/form-slice";
+import { Page, setPage, FormData, setData } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function NamePage() {
-  const page: Page = useSelector((state: RootState) => state.form.page);
+  const data: FormData = useSelector((state: RootState) => state.form.data);
+
   const dispatch = useDispatch();
 
   const [blocked, setBlocked] = useState<boolean>(true);
@@ -15,12 +16,24 @@ export default function NamePage() {
 
   function checkIfTheNextPageShouldBeBlocked() {
     if (!nameInputRef.current) return;
+
     if (nameInputRef.current.value !== "") {
       setBlocked(false);
     } else {
       setBlocked(true);
     }
   }
+
+  function submitPage() {
+    if (!nameInputRef.current) return;
+    dispatch(setData({...data, name: nameInputRef.current.value}));
+    dispatch(setPage(Page.PreferredContactSelection));
+  }
+
+  useEffect(() => {
+    if (!nameInputRef.current) return;
+    nameInputRef.current.value = data.name;
+  }, []);
   
   return (
     <>
@@ -31,7 +44,7 @@ export default function NamePage() {
         <input ref={nameInputRef}
                onKeyDown={(e) => {
                 if (e.key === "Enter" && !blocked) {
-                  dispatch(setPage(Page.PreferredContactSelection));
+                  submitPage();
                 }
                }}
                onChange={checkIfTheNextPageShouldBeBlocked}
@@ -41,7 +54,7 @@ export default function NamePage() {
          />
       </div>
       <div className="flex justify-center">
-        {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={() => dispatch(setPage(Page.PreferredContactSelection))}>Next</Button>}
+        {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={submitPage}>Next</Button>}
       </div>
     </>
   );
