@@ -4,24 +4,13 @@ import { Page, setPage, FormData, setData } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ExperiencePage() {
-  const page: Page = useSelector((state: RootState) => state.form.page);
   const data: FormData = useSelector((state: RootState) => state.form.data);
   const dispatch = useDispatch();
 
-  const [blocked, setBlocked] = useState<boolean>(true);
   const selectRef = useRef<HTMLSelectElement>(null);
-
-  function checkIfTheNextPageShouldBeBlocked() {
-    if (!selectRef.current) return;
-    if (selectRef.current.validity.valid && selectRef.current.value !== "") {
-      setBlocked(false);
-    } else {
-      setBlocked(true);
-    }
-  }
 
   function submitPage() {
     if (!selectRef.current) return;
