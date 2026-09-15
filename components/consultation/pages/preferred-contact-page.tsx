@@ -4,7 +4,7 @@ import { Page, setPage, FormData, setData } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function PreferredContactPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
@@ -46,6 +46,12 @@ export default function PreferredContactPage() {
     dispatch(setData({...data, preferredContact: preferredContactTextInputRef.current.value}));
     dispatch(setPage(Page.Experience));
   }
+
+  useEffect(() => {
+    if (!preferredContactTextInputRef.current) return;
+    preferredContactTextInputRef.current.value = data.preferredContact;
+    checkIfTheNextPageShouldBeBlocked();
+  }, []);
 
   return (
     <>

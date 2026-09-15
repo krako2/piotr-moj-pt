@@ -33,7 +33,7 @@ export default function NamePage() {
   useEffect(() => {
     if (!nameInputRef.current) return;
     nameInputRef.current.value = data.name;
-    checkIfTheNextPageShouldBeBlocked()
+    checkIfTheNextPageShouldBeBlocked();
   }, []);
   
   return (

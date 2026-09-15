@@ -35,7 +35,7 @@ const initialState: FormState = {
     name: "",
     preferredContactMethod: "Email",
     preferredContact: "",
-    experience: "Beginner",
+    experience: "Beginner (new to training)",
     goal: "",
     biggestStruggle: "",
     willingToInvest: "Need more info",
