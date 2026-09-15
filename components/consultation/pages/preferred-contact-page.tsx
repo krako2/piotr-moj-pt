@@ -64,7 +64,8 @@ export default function PreferredContactPage() {
         })()}
       </label>
       <div className="my-10 flex justify-center">
-        <input ref={preferredContactTextInputRef}
+        <input autoFocus
+               ref={preferredContactTextInputRef}
                onKeyDown={(e) => {
                 if (e.key === "Enter" && !blocked) {
                   dispatch(setPage(Page.Experience));
