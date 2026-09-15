@@ -44,7 +44,7 @@ export default function PreferredContactPage() {
   function submitPage() {
     if (!preferredContactTextInputRef.current) return;
     dispatch(setData({...data, preferredContact: preferredContactTextInputRef.current.value}));
-    dispatch(setPage(Page.Goal));
+    dispatch(setPage(Page.Experience));
   }
 
   return (
@@ -67,7 +67,7 @@ export default function PreferredContactPage() {
         <input ref={preferredContactTextInputRef}
                onKeyDown={(e) => {
                 if (e.key === "Enter" && !blocked) {
-                  dispatch(setPage(Page.Goal));
+                  dispatch(setPage(Page.Experience));
                 }
                }}
                onChange={checkIfTheNextPageShouldBeBlocked}
