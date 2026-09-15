@@ -74,7 +74,7 @@ export default function PreferredContactPage() {
                ref={preferredContactTextInputRef}
                onKeyDown={(e) => {
                 if (e.key === "Enter" && !blocked) {
-                  dispatch(setPage(Page.Experience));
+                  submitPage();
                 }
                }}
                onChange={checkIfTheNextPageShouldBeBlocked}
