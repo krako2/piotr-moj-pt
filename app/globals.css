@@ -34,7 +34,7 @@ main {
 
 @keyframes hero-photo-fade-in {
   from {
-    transform: translateX(10rem);
+    transform: translateX(3rem);
     opacity: 0;
   }
   to {
@@ -44,7 +44,7 @@ main {
 }
 
 .hero-photo-fade-in {
-  animation: hero-photo-fade-in 1.5s ease-out;
+  animation: hero-photo-fade-in 0.8s ease-in-out;
 }
 
 h1, h2 {
