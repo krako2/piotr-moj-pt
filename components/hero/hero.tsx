@@ -1,9 +1,7 @@
-import Image from "next/image";
-import ConsultationButton from "./consultation/consultation-button";
+import ConsultationButton from "../consultation/consultation-button";
+import HeroPhoto from "@/components/hero/hero-photo";
 
 export default function Hero() {
-  const heroPhotoWidth: number = 2160;
-  const heroPhotoHeight: number = 2880;
   return (
     <div className="flex flex-col p-5 sm:flex-row justify-center items-center">
       <section className="p-5 w-full">
@@ -13,15 +11,7 @@ export default function Hero() {
           <ConsultationButton />
         </div>
       </section>
-      <section className="p-5 bg-(--placeholder) w-full">
-        <Image
-          src="/hero-photo.jpg"
-          alt="Piotrek smiling in his car wearing a black hoodie"
-          width={heroPhotoWidth}
-          height={heroPhotoHeight}
-          loading="eager"
-        />
-      </section>
+      <HeroPhoto />
     </div>
   );
 }

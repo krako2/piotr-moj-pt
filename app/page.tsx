@@ -1,5 +1,5 @@
 import AnimatedBackground from "@/components/animated-background/animated-background";
-import Hero from "@/components/hero";
+import Hero from "@/components/hero/hero";
 import About from "@/components/about/about";
 import Testimonials from "@/components/testimonials/testimonials";
 import Contact from "@/components/contact";
