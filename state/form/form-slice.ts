@@ -38,7 +38,7 @@ const initialState: FormState = {
     experience: "Beginner (new to training)",
     goal: "",
     biggestStruggle: "",
-    willingToInvest: "Need more info",
+    willingToInvest: "I'm interested but need more information",
   },
 };
 
