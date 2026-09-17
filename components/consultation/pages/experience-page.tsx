@@ -8,13 +8,12 @@ import { useEffect, useRef } from "react";
 
 export default function ExperiencePage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
+
   const dispatch = useDispatch();
 
   const selectRef = useRef<HTMLSelectElement>(null);
 
   function submitPage() {
-    if (!selectRef.current) return;
-    dispatch(setData({...data, experience: selectRef.current.value}));
     dispatch(setPage(Page.Goal));
   }
 

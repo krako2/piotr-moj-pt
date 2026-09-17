@@ -4,7 +4,7 @@ import { Page, setPage, FormData, setData } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function PreferredContactSelectionPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
