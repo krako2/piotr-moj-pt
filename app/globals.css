@@ -17,6 +17,10 @@ main {
   max-width: 60rem;
 }
 
+h1, h2 {
+  font-family: Montserrat;
+}
+
 @keyframes fade-in {
   from {
     scale: 80%;
@@ -75,10 +79,6 @@ main {
 
 .hero-text-fade-in {
   animation: hero-text-fade-in 0.5s ease-out;
-}
-
-h1, h2 {
-  font-family: Lexend;
 }
 
 @theme inline {

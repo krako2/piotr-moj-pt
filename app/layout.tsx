@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lexend, Geist } from "next/font/google";
+import { Montserrat, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Personal training",
 };
 
-const lexend = Lexend({
+const lexend = Montserrat({
   subsets: ['latin'],
 });
 
