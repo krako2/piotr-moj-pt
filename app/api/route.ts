@@ -1,3 +1,5 @@
+import { env } from "cloudflare:workers";
+
 export async function POST(request: Request) {
   console.log(request.formData);
 
