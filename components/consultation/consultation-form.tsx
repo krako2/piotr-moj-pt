@@ -24,31 +24,35 @@ export default function ConsultationForm() {
 
   return showing ? (
     <div className="fixed top-0 left-0 flex justify-center items-center w-screen h-screen p-5">
-      <div className="flex justify-center items-center relative bg-(--placeholder) p-5 max-w-180 w-full h-full rounded-2xl">
-        <Button className="absolute top-5 right-5" onClick={() => dispatch(hide())}>Close</Button>
-        <div>
-          {(() => {
-            switch (page) {
-            case Page.Name:
-              return <NamePage />;
-            case Page.PreferredContactSelection:
-              return <PreferredContactSelectionPage />;
-            case Page.PreferredContact:
-              return <PreferredContactPage />;
-            case Page.Experience:
-              return <ExperiencePage />;
-            case Page.Goal:
-              return <GoalPage />;
-            case Page.BiggestStruggle:
-              return <BiggestStrugglePage />;
-            case Page.WillingToInvest:
-              return <WillingToInvestPage />;
-            case Page.Summary:
-              return <SummaryPage />;
-            default:
-              return <></>;
-            }
-          })()}
+      <div className="flex flex-col justify-center items-center bg-(--placeholder) p-5 max-w-180 w-full h-full rounded-2xl">
+        <div className="relative w-full h-10 overflow-y-clip">
+          <Button className="absolute right-0" onClick={() => dispatch(hide())}>Close</Button>
+        </div>
+        <div className="flex justify-center items-center w-full h-full overflow-y-scroll">
+          <div>
+            {(() => {
+              switch (page) {
+              case Page.Name:
+                return <NamePage />;
+              case Page.PreferredContactSelection:
+                return <PreferredContactSelectionPage />;
+              case Page.PreferredContact:
+                return <PreferredContactPage />;
+              case Page.Experience:
+                return <ExperiencePage />;
+              case Page.Goal:
+                return <GoalPage />;
+              case Page.BiggestStruggle:
+                return <BiggestStrugglePage />;
+              case Page.WillingToInvest:
+                return <WillingToInvestPage />;
+              case Page.Summary:
+                return <SummaryPage />;
+              default:
+                return <></>;
+              }
+            })()}
+          </div>
         </div>
       </div>
     </div>
