@@ -1,6 +1,6 @@
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { Page, setPage, FormData, setData } from "@/state/form/form-slice";
+import { Page, setPage, FormData } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
