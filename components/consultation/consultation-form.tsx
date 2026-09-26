@@ -15,6 +15,7 @@ import GoalPage from "@/components/consultation/pages/goal-page";
 import BiggestStrugglePage from "@/components/consultation/pages/biggest-struggle-page";
 import WillingToInvestPage from "@/components/consultation/pages/willing-to-invest-page";
 import SummaryPage from "@/components/consultation/pages/summary-page";
+import ConfirmationPage from "@/components/consultation/pages/confirmation-page";
 
 export default function ConsultationForm() {
   const showing: boolean = useSelector((state: RootState) => state.form.showing);
@@ -48,6 +49,8 @@ export default function ConsultationForm() {
                 return <WillingToInvestPage />;
               case Page.Summary:
                 return <SummaryPage />;
+              case Page.Confirmation:
+                return <ConfirmationPage />;
               default:
                 return <></>;
               }

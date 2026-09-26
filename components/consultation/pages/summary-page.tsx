@@ -30,7 +30,7 @@ export default function SummaryPage() {
       </div>
       <div className="mt-5 flex justify-center">
         <Button onClick={() => dispatch(setPage(Page.WillingToInvest))}>Back</Button>
-        <Button variant="special">Submit</Button>
+        <Button variant="special" onClick={() => dispatch(setPage(Page.Confirmation))}>Submit</Button>
       </div>
     </>
   );

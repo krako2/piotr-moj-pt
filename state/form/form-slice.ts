@@ -10,6 +10,7 @@ export enum Page {
   BiggestStruggle,
   WillingToInvest,
   Summary,
+  Confirmation,
 };
 
 export type FormData = {
