@@ -12,7 +12,7 @@ const ZodForm = z.object({
 });
 
 export async function POST(request: Request) {
-  console.log(request.formData);
+  const formData: Object = JSON.parse(await request.text());
 
   return new Response(JSON.stringify(request), {
     status: 201,

@@ -9,6 +9,10 @@ export default function SummaryPage() {
 
   const dispatch = useDispatch();
 
+  async function sendData() {
+    await fetch("/api", { method: "POST", body: JSON.stringify(data) });
+  }
+
   return (
     <>
       <div className="flex justify-center items-center text-center">
@@ -30,7 +34,14 @@ export default function SummaryPage() {
       </div>
       <div className="mt-5 flex justify-center">
         <Button onClick={() => dispatch(setPage(Page.WillingToInvest))}>Back</Button>
-        <Button variant="special" onClick={() => dispatch(setPage(Page.Confirmation))}>Submit</Button>
+        <Button variant="special"
+                onClick={() => {
+                  sendData();
+                  dispatch(setPage(Page.Confirmation));
+                }}
+        >
+          Submit
+        </Button>
       </div>
     </>
   );
