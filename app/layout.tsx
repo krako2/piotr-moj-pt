@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Personal training",
 };
 
-const lexend = Montserrat({
+const montserrat = Montserrat({
   subsets: ['latin'],
 });
 
