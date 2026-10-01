@@ -1,16 +1,26 @@
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { Page, setPage, FormData } from "@/state/form/form-slice";
+import { Page, setPage, FormData, setFormStatus, FormStatus } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
+import { useState } from "react";
+
 export default function SummaryPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
+  const [isSubmitButtonEnabled, setIsSubmitButtonEnabled] = useState<boolean>(true);
 
   const dispatch = useDispatch();
 
   async function sendData() {
-    await fetch("/api", { method: "POST", body: JSON.stringify(data) });
+    setIsSubmitButtonEnabled(false);
+    const apiResponse = await fetch("/api", { method: "POST", body: JSON.stringify(data) });
+    if (apiResponse.ok) {
+      dispatch(setFormStatus(FormStatus.Success));
+    } else {
+      dispatch(setFormStatus(FormStatus.Failure));
+    }
+    dispatch(setPage(Page.Confirmation));
   }
 
   return (
@@ -34,14 +44,10 @@ export default function SummaryPage() {
       </div>
       <div className="mt-5 flex justify-center">
         <Button onClick={() => dispatch(setPage(Page.WillingToInvest))}>Back</Button>
-        <Button variant="special"
-                onClick={() => {
-                  sendData();
-                  dispatch(setPage(Page.Confirmation));
-                }}
-        >
+        {isSubmitButtonEnabled ? <Button variant="special"
+          onClick={sendData}>
           Submit
-        </Button>
+        </Button> : <Button variant="disabled">Working...</Button>}
       </div>
     </>
   );
