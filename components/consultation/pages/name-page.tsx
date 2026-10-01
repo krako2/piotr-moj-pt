@@ -37,7 +37,7 @@ export default function NamePage() {
   }, []);
   
   return (
-    <>
+    <div className="form-fade-in">
       <label htmlFor="name" className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">What is your first name?</h1>
       </label>
@@ -58,6 +58,6 @@ export default function NamePage() {
       <div className="flex justify-center">
         {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={submitPage}>Next</Button>}
       </div>
-    </>
+    </div>
   );
 }

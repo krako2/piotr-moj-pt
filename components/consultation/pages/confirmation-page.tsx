@@ -6,8 +6,8 @@ export default function ConfirmationPage() {
   const formStatus: FormStatus = useSelector((state: RootState) => state.form.status);
 
   if (formStatus === FormStatus.Success) {
-    return <p>Success! Expect a response soon.</p>;
+    return <p className="form-fade-in">Success! Expect a response soon.</p>;
   }
 
-  return <p>Something went wrong. Maybe one of your responses was too long.</p>;
+  return <p className="form-fade-in">Something went wrong. Maybe one of your responses was too long.</p>;
 }

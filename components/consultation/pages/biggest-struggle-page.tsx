@@ -35,7 +35,7 @@ export default function BiggestStrugglePage() {
   }, []);
 
   return (
-    <>
+    <div className="form-fade-in">
       <label htmlFor="biggest-struggle" className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">What is your biggest struggle that stands between you and your goals?</h1>
       </label>
@@ -57,6 +57,6 @@ export default function BiggestStrugglePage() {
         <Button onClick={() => dispatch(setPage(Page.Goal))}>Back</Button>
         {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={submitPage}>Next</Button>}
       </div>
-    </>
+    </div>
   );
 }

@@ -35,7 +35,7 @@ export default function GoalPage() {
   }, []);
 
   return (
-    <>
+    <div className="form-fade-in">
       <label htmlFor="goal" className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">What is your main goal within training, health and nutrition?</h1>
       </label>
@@ -57,6 +57,6 @@ export default function GoalPage() {
         <Button onClick={() => dispatch(setPage(Page.Experience))}>Back</Button>
         {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={submitPage}>Next</Button>}
       </div>
-    </>
+    </div>
   );
 }

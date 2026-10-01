@@ -23,7 +23,7 @@ export default function PreferredContactSelectionPage() {
   }, []);
 
   return (
-    <>
+    <div className="form-fade-in">
       <label htmlFor="preferred-contact-selection" className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">What is your preferred method of contact?</h1>
       </label>
@@ -53,6 +53,6 @@ export default function PreferredContactSelectionPage() {
         <Button onClick={() => dispatch(setPage(Page.Name))}>Back</Button>
         <Button onClick={submitPage}>Next</Button>
       </div>
-    </>
+    </div>
   );
 }

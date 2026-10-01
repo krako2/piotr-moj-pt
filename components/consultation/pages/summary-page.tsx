@@ -24,7 +24,7 @@ export default function SummaryPage() {
   }
 
   return (
-    <>
+    <div className="form-fade-in">
       <div className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">Here's a summary of what you said</h1>
       </div>
@@ -49,6 +49,6 @@ export default function SummaryPage() {
           Submit
         </Button> : <Button variant="disabled">Working...</Button>}
       </div>
-    </>
+    </div>
   );
 }

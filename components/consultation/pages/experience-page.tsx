@@ -23,7 +23,7 @@ export default function ExperiencePage() {
   }, []);
 
   return (
-    <>
+    <div className="form-fade-in">
       <label htmlFor="experience" className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">Where are you currently with your training?</h1>
       </label>
@@ -53,6 +53,6 @@ export default function ExperiencePage() {
         <Button onClick={() => dispatch(setPage(Page.PreferredContact))}>Back</Button>
         <Button onClick={submitPage}>Next</Button>
       </div>
-    </>
+    </div>
   );
 }

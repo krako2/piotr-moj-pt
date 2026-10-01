@@ -54,7 +54,7 @@ export default function PreferredContactPage() {
   }, []);
 
   return (
-    <>
+    <div className="form-fade-in">
       <label htmlFor="preferred-contact" className="flex justify-center items-center text-center">
         {(() => {
           switch (data.preferredContactMethod) {
@@ -87,6 +87,6 @@ export default function PreferredContactPage() {
         <Button onClick={() => dispatch(setPage(Page.PreferredContactSelection))}>Back</Button>
         {blocked ? <Button variant="disabled">Next</Button> : <Button onClick={submitPage}>Next</Button>}
       </div>
-    </>
+    </div>
   );
 }

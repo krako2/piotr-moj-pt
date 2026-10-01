@@ -81,6 +81,21 @@ h1, h2 {
   animation: hero-text-fade-in 0.5s ease-out;
 }
 
+@keyframes form-fade-in {
+  from {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+
+.form-fade-in {
+  animation: form-fade-in 0.15s ease-out;
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);

@@ -23,7 +23,7 @@ export default function WillingToInvestPage() {
   }, []);
 
   return (
-    <>
+    <div className="form-fade-in">
       <label htmlFor="willing-to-invest" className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">Are you willing to invest in yourself to achieve your goals?</h1>
       </label>
@@ -52,6 +52,6 @@ export default function WillingToInvestPage() {
         <Button onClick={() => dispatch(setPage(Page.BiggestStruggle))}>Back</Button>
         <Button onClick={submitPage}>Next</Button>
       </div>
-    </>
+    </div>
   );
 }
