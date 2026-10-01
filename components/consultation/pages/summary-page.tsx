@@ -31,7 +31,7 @@ export default function SummaryPage() {
       <div className="mt-5 max-h-110 overflow-y-scroll break-all">
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Name</h2>
         <p>{data.name}</p>
-        <h2 className="my-2 text-2xl text-green-400 font-semibold">Preferred contact</h2>
+        <h2 className="my-2 text-2xl text-green-400 font-semibold">Preferred contact ({data.preferredContactMethod})</h2>
         <p>{data.preferredContact}</p>
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Experience level</h2>
         <p>{data.experience}</p>
