@@ -48,7 +48,7 @@ export default function BiggestStrugglePage() {
                 }
                }}
                onChange={checkIfTheNextPageShouldBeBlocked}
-               className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light) w-full max-w-140"
+               className="mx-2 bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light) w-full max-w-140"
                type="text"
                name="biggest-struggle"
          />

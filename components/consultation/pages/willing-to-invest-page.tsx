@@ -30,7 +30,7 @@ export default function WillingToInvestPage() {
       <div className="my-10 flex justify-center">
         <select autoFocus
                 ref={selectRef}
-                className="bg-(--placeholder-light) p-3 rounded-2xl w-full max-w-120 focus:outline-2 focus:outline-(--placeholder-extra-light) appearance-none"
+                className="mx-2 bg-(--placeholder-light) p-3 rounded-2xl w-full max-w-120 focus:outline-2 focus:outline-(--placeholder-extra-light) appearance-none"
                 onChange={() => {
                   if (!selectRef.current) return;
 

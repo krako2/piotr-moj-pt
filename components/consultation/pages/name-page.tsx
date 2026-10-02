@@ -50,7 +50,7 @@ export default function NamePage() {
                 }
                }}
                onChange={checkIfTheNextPageShouldBeBlocked}
-               className="bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light) w-full max-w-100"
+               className="mx-2 bg-(--placeholder-light) p-2 rounded-lg focus:outline-2 focus:outline-(--placeholder-extra-light) w-full max-w-100"
                type="text"
                name="name"
          />
