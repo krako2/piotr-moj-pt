@@ -8,12 +8,12 @@ import { useState } from "react";
 
 export default function SummaryPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
-  const [isSubmitButtonEnabled, setIsSubmitButtonEnabled] = useState<boolean>(true);
+  const [processing, setProcessing] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
   async function sendData() {
-    setIsSubmitButtonEnabled(false);
+    setProcessing(true);
     const apiResponse = await fetch("/api", { method: "POST", body: JSON.stringify(data) });
     if (apiResponse.ok) {
       dispatch(setFormStatus(FormStatus.Success));
@@ -44,10 +44,8 @@ export default function SummaryPage() {
       </div>
       <div className="mt-5 flex justify-center">
         <Button onClick={() => dispatch(setPage(Page.WillingToInvest))}>Back</Button>
-        {isSubmitButtonEnabled ? <Button variant="special"
-          onClick={sendData}>
-          Submit
-        </Button> : <Button variant="disabled">Working...</Button>}
+        {processing ? <Button variant="processing">Submit</Button>
+          : <Button variant="special" onClick={sendData}>Submit</Button>}
       </div>
     </div>
   );
