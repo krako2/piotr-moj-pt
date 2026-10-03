@@ -17,13 +17,13 @@ export async function POST(request: Request) {
   const zodResult = ZodForm.safeParse(formData);
   
   if (zodResult.success) {
-    return new Response(JSON.stringify(request), {
+    return new Response("Success! Expect a response soon.", {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
   }
 
-  return new Response(JSON.stringify(request), {
+  return new Response("Submission failed. Maybe one of your responses was too long.", {
     status: 400,
     headers: { "Content-Type": "application/json" },
   });
