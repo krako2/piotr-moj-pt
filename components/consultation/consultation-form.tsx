@@ -24,7 +24,13 @@ export default function ConsultationForm() {
   const dispatch = useDispatch();
 
   return showing ? (
-    <div className="fixed top-0 flex justify-center items-center w-full h-full p-5 form-fade-in">
+    <div className="fixed top-0 flex justify-center items-center w-full h-full p-5 form-fade-in"
+         onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            dispatch(hide());
+          }
+         }}
+    >
       <div className="flex flex-col justify-center items-center bg-(--placeholder) p-5 max-w-180 w-full h-full rounded-2xl">
         <div className="relative w-full h-10 overflow-y-clip">
           <Button className="absolute right-0" onClick={() => dispatch(hide())}>Close</Button>
