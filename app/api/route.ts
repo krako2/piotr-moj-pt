@@ -12,18 +12,17 @@ const ZodForm = z.object({
 });
 
 export async function POST(request: Request) {
-  const formData: Object = await request.json();
-
+  const formData: unknown = await request.json();
   const zodResult = ZodForm.safeParse(formData);
   
   if (zodResult.success) {
-    return new Response("Success! Expect a response soon.", {
+    return new Response(null, {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
   }
 
-  return new Response("Submission failed. Maybe one of your responses was too long.", {
+  return new Response(null, {
     status: 400,
     headers: { "Content-Type": "application/json" },
   });
