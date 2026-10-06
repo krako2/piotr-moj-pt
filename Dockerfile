@@ -14,4 +14,4 @@ WORKDIR /repo
 
 RUN pnpm i
 
-CMD ["pnpm", "dev"]
+CMD ["pnpm", "dev:vinext"]
