@@ -13,6 +13,5 @@ COPY . /repo/
 WORKDIR /repo
 
 RUN pnpm i
-RUN pnpm build:vinext
 
-CMD ["pnpm", "start:vinext"]
+CMD ["pnpx", "wrangler", "dev"]
