@@ -17,4 +17,5 @@
   "observability": {
     "enabled": false
   },
+  "send_email": [{ "name": "EMAIL" }],
 }
