@@ -40,8 +40,7 @@ export default function BiggestStrugglePage() {
         <h1 className="text-4xl text-green-400 font-semibold">What is your biggest struggle that stands between you and your goals?</h1>
       </label>
       <div className="my-10 flex justify-center">
-        <input autoFocus
-               ref={biggestStruggleInputRef}
+        <input ref={biggestStruggleInputRef}
                onKeyDown={(e) => {
                 if (e.key === "Enter" && !blocked) {
                   submitPage();

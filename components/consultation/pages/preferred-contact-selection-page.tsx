@@ -28,8 +28,7 @@ export default function PreferredContactSelectionPage() {
         <h1 className="text-4xl text-green-400 font-semibold">What is your preferred method of contact?</h1>
       </label>
       <div className="my-10 flex justify-center">
-        <select autoFocus
-                ref={selectRef}
+        <select ref={selectRef}
                 className="mx-2 bg-(--placeholder-light) p-3 rounded-2xl w-full max-w-60 focus:outline-2 focus:outline-(--placeholder-extra-light) appearance-none"
                 onChange={() => {
                   if (!selectRef.current) return;

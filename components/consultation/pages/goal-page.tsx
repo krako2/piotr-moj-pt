@@ -40,8 +40,7 @@ export default function GoalPage() {
         <h1 className="text-4xl text-green-400 font-semibold">What is your main goal within training, health and nutrition?</h1>
       </label>
       <div className="my-10 flex justify-center">
-        <input autoFocus
-               ref={goalInputRef}
+        <input ref={goalInputRef}
                onKeyDown={(e) => {
                 if (e.key === "Enter" && !blocked) {
                   submitPage();

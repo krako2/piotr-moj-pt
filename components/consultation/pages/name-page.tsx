@@ -42,8 +42,7 @@ export default function NamePage() {
         <h1 className="text-4xl text-green-400 font-semibold">What is your first name?</h1>
       </label>
       <div className="my-10 flex justify-center">
-        <input autoFocus
-               ref={nameInputRef}
+        <input ref={nameInputRef}
                onKeyDown={(e) => {
                 if (e.key === "Enter" && !blocked) {
                   submitPage();
