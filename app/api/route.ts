@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   if (result.success) {
     await env.EMAIL.send({
 		  to: `${env.OWNER_EMAIL}`,
-			from: { email: `${env.OWNER_EMAIL}`, name: "Piotr's Email Bot" },
+			from: { email: `${env.SERVICE_EMAIL}`, name: "Piotr's Email Bot" },
 			subject: "New Form Submission",
 			html: `
         <h1>Someone just submitted a response to the consultation form!</h1>

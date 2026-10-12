@@ -19,6 +19,6 @@
   },
   "send_email": [{ "name": "EMAIL" }],
   "secrets": {
-    "required": ["OWNER_EMAIL"],
+    "required": ["OWNER_EMAIL", "SERVICE_EMAIL"],
   },
 }
