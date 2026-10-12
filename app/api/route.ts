@@ -22,18 +22,12 @@ export async function POST(request: Request) {
 			subject: "New Form Submission",
 			html: `
         <h1>Someone just submitted a response to the consultation form!</h1>
-        <h2>Name</h2>
-        <p>${result.data.name}</p>
-        <h2>Preferred contact (${result.data.preferredContactMethod})</h2>
-        <p>${result.data.preferredContact}</p>
-        <h2>Experience level</h2>
-        <p>${result.data.experience}</p>
-        <h2>Main goal</h2>
-        <p>${result.data.goal}</p>
-        <h2>Biggest struggle</h2>
-        <p>${result.data.biggestStruggle}</p>
-        <h2>Willing to invest?</h2>
-        <p>${result.data.willingToInvest}</p>
+        <p>Name: ${result.data.name}</p>
+        <p>Preferred contact (${result.data.preferredContactMethod}): ${result.data.preferredContact}</p>
+        <p>Experience level: ${result.data.experience}</p>
+        <p>Main goal: ${result.data.goal}</p>
+        <p>Biggest struggle: ${result.data.biggestStruggle}</p>
+        <p>Willing to invest? ${result.data.willingToInvest}</p>
       `,
 			text: `
         Someone just submitted a response to the consultation form!
