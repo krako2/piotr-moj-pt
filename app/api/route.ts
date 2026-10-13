@@ -5,6 +5,7 @@ const ZodForm = z.object({
   name: z.string().nonempty().max(100),
   preferredContactMethod: z.string().nonempty().max(10),
   preferredContact: z.string().nonempty().max(100),
+  experienceMethod: z.string().max(0), // Honeypot
   experience: z.string().nonempty().max(100),
   goal: z.string().nonempty().max(1000),
   biggestStruggle: z.string().nonempty().max(1000),

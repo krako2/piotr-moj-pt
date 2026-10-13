@@ -22,6 +22,7 @@ export type FormData = {
   name: string
   preferredContactMethod: string
   preferredContact: string
+  experienceMethod: string // Honeypot
   experience: string
   goal: string
   biggestStruggle: string
@@ -42,6 +43,7 @@ const initialState: FormState = {
     name: "",
     preferredContactMethod: "Email",
     preferredContact: "",
+    experienceMethod: "", // Honeypot
     experience: "Beginner (new to training)",
     goal: "",
     biggestStruggle: "",
