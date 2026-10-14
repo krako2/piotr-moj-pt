@@ -18,6 +18,10 @@ This will start a container running the site. You can access it through your bro
 
 ``docker stop piotr-moj-pt && docker rm piotr-moj-pt && docker rmi piotr-moj-pt``
 
+Here's the complete command to recreate and restart the docker container after removing the existing one (make sure to push your changes from the container and pull in the changes on your local machine before doing so):
+
+``docker stop piotr-moj-pt && docker rm piotr-moj-pt && docker rmi piotr-moj-pt && docker build -t piotr-moj-pt . && docker run --name piotr-moj-pt -d -p 3000:3000 piotr-moj-pt``
+
 ## Fixes
 
 If you're using VSCode, IntelliSense won't work for CSS files because I enabled a file association for CSS files and Tailwind. You can fix this by getting the official Tailwind CSS IntelliSense extension. The extension will get installed to the container, not your local installation of VSCode, as long as you have the container open through Dev Containers.
