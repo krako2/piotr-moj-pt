@@ -28,7 +28,7 @@ export default function SummaryPage() {
       <div className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">Here's a summary of what you said</h1>
       </div>
-      <div className="mt-5 h-full max-h-110 overflow-y-scroll break-all">
+      <div className="mt-5 h-full max-h-80 overflow-y-scroll break-all">
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Name</h2>
         <p>{data.name}</p>
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Preferred contact ({data.preferredContactMethod})</h2>
