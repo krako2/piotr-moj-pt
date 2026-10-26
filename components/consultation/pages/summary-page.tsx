@@ -4,7 +4,7 @@ import { Page, setPage, FormData, setFormStatus, FormStatus } from "@/state/form
 
 import { Button } from "@/components/ui/button";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SummaryPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
@@ -22,6 +22,19 @@ export default function SummaryPage() {
     }
     dispatch(setPage(Page.Confirmation));
   }
+
+  useEffect(() => {
+    // @ts-ignore
+    // ignoring because the 'turnstile' object comes from the Turnstile script from the remote url
+    // Typescript doesn't recognise it
+    // https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit
+    const widgetId = turnstile.render("#turnstile", {
+      sitekey: "3x00000000000000000000FF",
+      callback: function (token: string) {
+        console.log("Success:", token); // TODO: dispatch the token to the local form with setData()
+      },
+    });
+  }, []);
 
   return (
     <div className="form-fade-in">
@@ -47,6 +60,12 @@ export default function SummaryPage() {
         {processing ? <Button variant="processing">Submit</Button>
           : <Button variant="special" onClick={sendData}>Submit</Button>}
       </div>
+      <div id="turnstile"
+           className="mt-5 flex justify-center items-center"
+           data-sitekey="1x00000000000000000000AA"
+           data-theme="dark"
+           data-size="normal"
+      />
     </div>
   );
 }

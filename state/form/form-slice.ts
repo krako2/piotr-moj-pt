@@ -27,6 +27,7 @@ export type FormData = {
   goal: string
   biggestStruggle: string
   willingToInvest: string
+  token: string
 };
 
 export interface FormState {
@@ -48,6 +49,7 @@ const initialState: FormState = {
     goal: "",
     biggestStruggle: "",
     willingToInvest: "I'm interested but need more information",
+    token: "",
   },
   status: FormStatus.Failure,
 };

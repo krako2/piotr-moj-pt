@@ -1,3 +1,4 @@
+import CloudflareTurnstile from "@/components/cloudflare-turnstile";
 import AnimatedBackground from "@/components/animated-background/animated-background";
 import MainContent from "@/components/main-content";
 import Hero from "@/components/hero/hero";
@@ -12,6 +13,7 @@ import StoreProvider from "@/state/store-provider";
 export default function Home() {
   return (
     <>
+      <CloudflareTurnstile />
       <StoreProvider>
         <AnimatedBackground />
         <MainContent>
