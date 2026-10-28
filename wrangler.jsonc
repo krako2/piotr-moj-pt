@@ -19,6 +19,6 @@
   },
   "send_email": [{ "name": "EMAIL" }],
   "secrets": {
-    "required": ["OWNER_EMAIL", "SERVICE_EMAIL"],
+    "required": ["OWNER_EMAIL", "SERVICE_EMAIL", "TURNSTILE_SITE_KEY", "TURNSTILE_SECRET_KEY"],
   },
 }

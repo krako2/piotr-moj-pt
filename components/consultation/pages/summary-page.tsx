@@ -1,3 +1,5 @@
+import { env } from "cloudflare:workers";
+
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
 import { Page, setPage, FormData, setFormStatus, FormStatus } from "@/state/form/form-slice";
@@ -26,12 +28,16 @@ export default function SummaryPage() {
   useEffect(() => {
     // @ts-ignore
     // ignoring because the 'turnstile' object comes from the Turnstile script from the remote url
-    // Typescript doesn't recognise it
+    // so Typescript doesn't recognise it
     // https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit
     const widgetId = turnstile.render("#turnstile", {
-      sitekey: "3x00000000000000000000FF",
-      callback: function (token: string) {
+      sitekey: env.TURNSTILE_SITE_KEY,
+      callback: function(token: string) {
         console.log("Success:", token); // TODO: dispatch the token to the local form with setData()
+      },
+      // Makes Next.js stop bitching
+      "error-callback": function() {
+        return true;
       },
     });
   }, []);
