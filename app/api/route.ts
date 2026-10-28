@@ -10,6 +10,7 @@ const ZodForm = z.object({
   goal: z.string().nonempty().max(1000),
   biggestStruggle: z.string().nonempty().max(1000),
   willingToInvest: z.string().nonempty().max(100),
+  token: z.string().nonempty(),
 });
 
 export async function POST(request: Request) {

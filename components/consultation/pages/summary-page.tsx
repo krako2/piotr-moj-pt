@@ -2,7 +2,7 @@ import { env } from "cloudflare:workers";
 
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { Page, setPage, FormData, setFormStatus, FormStatus } from "@/state/form/form-slice";
+import { Page, setPage, FormData, setFormStatus, FormStatus, setData } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
@@ -33,7 +33,7 @@ export default function SummaryPage() {
     const widgetId = turnstile.render("#turnstile", {
       sitekey: env.TURNSTILE_SITE_KEY,
       callback: function(token: string) {
-        console.log("Success:", token); // TODO: dispatch the token to the local form with setData()
+        dispatch(setData({...data, token: token}));
       },
       // Makes Next.js stop bitching
       "error-callback": function() {
