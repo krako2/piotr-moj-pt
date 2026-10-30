@@ -31,7 +31,7 @@ export default function SummaryPage() {
     // so Typescript doesn't recognise it
     // https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit
     const widgetId = turnstile.render("#turnstile", {
-      sitekey: env.TURNSTILE_SITE_KEY,
+      sitekey: `${env.TURNSTILE_SITE_KEY}`,
       callback: function(token: string) {
         dispatch(setData({...data, token: token}));
       },
