@@ -1,5 +1,3 @@
-import { env } from "cloudflare:workers";
-
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
 import { Page, setPage, FormData, setFormStatus, FormStatus, setData } from "@/state/form/form-slice";
@@ -7,6 +5,9 @@ import { Page, setPage, FormData, setFormStatus, FormStatus, setData } from "@/s
 import { Button } from "@/components/ui/button";
 
 import { useEffect, useState } from "react";
+
+// Edit
+const TURNSTILE_SITE_KEY: string = "";
 
 export default function SummaryPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
@@ -31,7 +32,7 @@ export default function SummaryPage() {
     // so Typescript doesn't recognise it
     // https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit
     const widgetId = turnstile.render("#turnstile", {
-      sitekey: `${env.TURNSTILE_SITE_KEY}`,
+      sitekey: `${TURNSTILE_SITE_KEY}`,
       callback: function(token: string) {
         dispatch(setData({...data, token: token}));
       },
@@ -68,7 +69,7 @@ export default function SummaryPage() {
       </div>
       <div id="turnstile"
            className="mt-5 flex justify-center items-center"
-           data-sitekey="1x00000000000000000000AA"
+           data-sitekey={TURNSTILE_SITE_KEY}
            data-theme="dark"
            data-size="normal"
       />
