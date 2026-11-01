@@ -42,13 +42,13 @@ export async function POST(request: Request) {
       `,
     });
 
-    return new Response(null, {
+    return new Response("Success! Expect a response soon.", {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
   }
 
-  return new Response(null, {
+  return new Response("Submission failed. Maybe one of your responses was too long.", {
     status: 400,
     headers: { "Content-Type": "application/json" },
   });

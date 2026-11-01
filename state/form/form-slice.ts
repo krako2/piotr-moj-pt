@@ -13,11 +13,6 @@ export enum Page {
   Confirmation,
 };
 
-export enum FormStatus {
-  Success,
-  Failure,
-}
-
 export type FormData = {
   name: string
   preferredContactMethod: string
@@ -34,7 +29,8 @@ export interface FormState {
   showing: boolean
   page: Page
   data: FormData
-  status: FormStatus
+  message: string
+  ok: boolean
 };
 
 const initialState: FormState = {
@@ -51,7 +47,8 @@ const initialState: FormState = {
     willingToInvest: "I'm interested but need more information",
     token: "",
   },
-  status: FormStatus.Failure,
+  message: "",
+  ok: false,
 };
 
 const formSlice = createSlice({
@@ -70,11 +67,14 @@ const formSlice = createSlice({
     setData: (state, action: PayloadAction<FormData>) => {
       state.data = action.payload;
     },
-    setFormStatus: (state, action: PayloadAction<FormStatus>) => {
-      state.status = action.payload;
+    setFormMessage: (state, action: PayloadAction<string>) => {
+      state.message = action.payload;
+    },
+    setOk: (state) => {
+      state.ok = true;
     },
   }
 });
 
-export const { show, hide, setPage, setData, setFormStatus } = formSlice.actions;
+export const { show, hide, setPage, setData, setFormMessage, setOk } = formSlice.actions;
 export default formSlice.reducer;

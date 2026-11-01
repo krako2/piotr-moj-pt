@@ -1,6 +1,6 @@
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { Page, setPage, FormData, setFormStatus, FormStatus, setData } from "@/state/form/form-slice";
+import { Page, setPage, FormData, setFormMessage, setData, setOk } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
 
@@ -17,12 +17,15 @@ export default function SummaryPage() {
 
   async function sendData() {
     setProcessing(true);
+
     const apiResponse = await fetch("/api", { method: "POST", body: JSON.stringify(data) });
-    if (apiResponse.ok) {
-      dispatch(setFormStatus(FormStatus.Success));
-    } else {
-      dispatch(setFormStatus(FormStatus.Failure));
+    const apiMessage: string = await apiResponse.text();
+
+    if (apiResponse.ok) { 
+      dispatch(setOk());
     }
+
+    dispatch(setFormMessage(apiMessage));
     dispatch(setPage(Page.Confirmation));
   }
 
