@@ -12,6 +12,11 @@
   }
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
 main {
   margin: 0 auto;
   max-width: 60rem;
