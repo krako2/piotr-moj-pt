@@ -9,9 +9,8 @@ RUN node -v
 RUN npm -v
 RUN npm i -g pnpm
 
-COPY . /root/repo/
-WORKDIR /root/repo
-
+COPY . /repo/
+WORKDIR /repo
 RUN pnpm i
 
 CMD ["pnpm", "dev"]
