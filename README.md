@@ -8,7 +8,7 @@ A Dockerfile is included for a simple and secure development process. I recommen
 
 With Docker installed, open the directory of the cloned repo in a terminal and run:
 
-``docker build -t piotr-moj-pt .``
+``docker build -t piotr-moj-pt . --network=host``
 
 Docker will build the image. Once it's done, run:
 
