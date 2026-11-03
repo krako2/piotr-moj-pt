@@ -16,11 +16,23 @@ Docker will build the image. Once it's done, run:
 
 This will start a container running the site. You can access it through your browser by navigating to `http://localhost:3000`. Once you're done, you can remove both the container and image by running:
 
+Linux:
+
 ``docker stop piotr-moj-pt && docker rm piotr-moj-pt && docker rmi piotr-moj-pt``
+
+Windows:
+
+``docker stop piotr-moj-pt; docker rm piotr-moj-pt; docker rmi piotr-moj-pt``
 
 Here's the complete command to recreate and restart the docker container after removing the existing one (make sure to push your changes from the container and pull in the changes on your local machine before doing so):
 
-``docker stop piotr-moj-pt && docker rm piotr-moj-pt && docker rmi piotr-moj-pt && docker build -t piotr-moj-pt . && docker run --name piotr-moj-pt -d -p 3000:3000 piotr-moj-pt``
+Linux:
+
+``docker stop piotr-moj-pt && docker rm piotr-moj-pt && docker rmi piotr-moj-pt && docker build -t piotr-moj-pt . --network=host && docker run --name piotr-moj-pt -d -p 3000:3000 piotr-moj-pt``
+
+Windows:
+
+``docker stop piotr-moj-pt; docker rm piotr-moj-pt; docker rmi piotr-moj-pt; docker build -t piotr-moj-pt . --network=host; docker run --name piotr-moj-pt -d -p 3000:3000 piotr-moj-pt``
 
 ## Fixes
 
