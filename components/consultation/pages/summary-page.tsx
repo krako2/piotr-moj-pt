@@ -11,7 +11,7 @@ const TURNSTILE_SITE_KEY: string = "1x00000000000000000000AA";
 
 export default function SummaryPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
-  const [processing, setProcessing] = useState<boolean>(false);
+  const [processing, setProcessing] = useState<boolean>(true);
 
   const dispatch = useDispatch();
 
@@ -38,6 +38,7 @@ export default function SummaryPage() {
       sitekey: `${TURNSTILE_SITE_KEY}`,
       callback: function(token: string) {
         dispatch(setData({...data, token: token}));
+        setProcessing(false);
       },
       // Makes Next.js stop bitching
       "error-callback": function() {
