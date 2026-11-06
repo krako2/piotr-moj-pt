@@ -15,41 +15,84 @@ const ZodForm = z.object({
 
 export async function POST(request: Request) {
   const data: unknown = await request.json();
-  const result = ZodForm.safeParse(data);
+  const zodResult = ZodForm.safeParse(data);
   
-  if (result.success) {
-    await env.EMAIL.send({
-		  to: `${env.OWNER_EMAIL}`,
-			from: { email: `${env.SERVICE_EMAIL}`, name: "Piotr's Email Bot" },
-			subject: "New Form Submission",
-			html: `
-        <h1>Someone just submitted a response to the consultation form!</h1>
-        <p><strong>Name:</strong> ${result.data.name}</p>
-        <p><strong>Preferred contact (${result.data.preferredContactMethod}):</strong> ${result.data.preferredContact}</p>
-        <p><strong>Experience level:</strong> ${result.data.experience}</p>
-        <p><strong>Main goal:</strong> ${result.data.goal}</p>
-        <p><strong>Biggest struggle:</strong> ${result.data.biggestStruggle}</p>
-        <p><strong>Willing to invest?</strong> ${result.data.willingToInvest}</p>
-      `,
-			text: `
-        Someone just submitted a response to the consultation form!
-        Name: ${result.data.name}
-        Preferred contact: ${result.data.preferredContactMethod} - ${result.data.preferredContact}
-        Experience level: ${result.data.experience}
-        Main goal: ${result.data.goal}
-        Biggest struggle: ${result.data.biggestStruggle}
-        Willing to invest: ${result.data.willingToInvest}
-      `,
-    });
-
-    return new Response("Success! Expect a response soon.", {
-      status: 200,
+  if (!zodResult.success) {
+    return new Response("Submission failed. Maybe one of your responses was too long.", {
+      status: 400,
       headers: { "Content-Type": "application/json" },
     });
   }
 
-  return new Response("Submission failed. Maybe one of your responses was too long.", {
-    status: 400,
+  const expectedHostnames = new Set((env.TURNSTILE_HOSTNAMES ?? "")
+    .split(",")
+    .map((hostname: string) => hostname.trim())
+    .filter(Boolean),
+  );
+
+  const token: string = zodResult.data.token;
+  if (typeof token !== "string" || token.length === 0 || token.length > 2048 || expectedHostnames.size === 0) {
+    return new Response("Stop messing with the token, asshole.", {
+      status: 403,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  const turnstileResponse = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    signal: AbortSignal.timeout(10_000),
+    body: new URLSearchParams({
+      secret: env.TURNSTILE_SECRET_KEY,
+      response: token,
+      remoteip: request.headers.get("CF-Connecting-IP") ?? "",
+    }),
+  });
+
+  if (!turnstileResponse.ok) {
+    return new Response("Couldn't verify your request. Maybe you're a bot or Cloudflare Turnstile failed.", {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  const turnstileResponseJSON: Response = await turnstileResponse.json();
+
+  // @ts-ignore
+  // 'hostname' is just a property on the JSON object returned by the Turnstile server
+  if (!expectedHostnames.has(turnstileResponseJSON.hostname)) {
+    return new Response("Why would you do this?", {
+      status: 403,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  await env.EMAIL.send({
+    to: `${env.OWNER_EMAIL}`,
+    from: { email: `${env.SERVICE_EMAIL}`, name: "Piotr's Email Bot" },
+    subject: "New Form Submission",
+    html: `
+      <h1>Someone just submitted a response to the consultation form!</h1>
+      <p><strong>Name:</strong> ${zodResult.data.name}</p>
+      <p><strong>Preferred contact (${zodResult.data.preferredContactMethod}):</strong> ${zodResult.data.preferredContact}</p>
+      <p><strong>Experience level:</strong> ${zodResult.data.experience}</p>
+      <p><strong>Main goal:</strong> ${zodResult.data.goal}</p>
+      <p><strong>Biggest struggle:</strong> ${zodResult.data.biggestStruggle}</p>
+      <p><strong>Willing to invest?</strong> ${zodResult.data.willingToInvest}</p>
+    `,
+    text: `
+      Someone just submitted a response to the consultation form!
+      Name: ${zodResult.data.name}
+      Preferred contact: ${zodResult.data.preferredContactMethod} - ${zodResult.data.preferredContact}
+      Experience level: ${zodResult.data.experience}
+      Main goal: ${zodResult.data.goal}
+      Biggest struggle: ${zodResult.data.biggestStruggle}
+      Willing to invest: ${zodResult.data.willingToInvest}
+    `,
+  });
+
+  return new Response("Success! Expect a response soon.", {
+    status: 200,
     headers: { "Content-Type": "application/json" },
   });
 }
