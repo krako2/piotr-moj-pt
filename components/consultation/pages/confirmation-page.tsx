@@ -13,9 +13,9 @@ export default function ConfirmationPage() {
   return (
     <div className="form-fade-in">
       <p>{formMessage}</p>
-      { formOk ? <div className="mt-5 flex justify-center">
+      { formOk ? null : <div className="mt-5 flex justify-center">
         <Button onClick={() => dispatch(setPage(Page.Summary))}>Back</Button>
-      </div> : null }
+      </div> }
     </div>
   );
 }

@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     from: { email: `${env.SERVICE_EMAIL}`, name: "Piotr's Email Bot" },
     subject: "New Form Submission",
     html: `
-      <h1>Someone just submitted a response to the consultation form!</h1>
+      <h1>You might have a client!</h1>
       <p><strong>Name:</strong> ${zodResult.data.name}</p>
       <p><strong>Preferred contact (${zodResult.data.preferredContactMethod}):</strong> ${zodResult.data.preferredContact}</p>
       <p><strong>Experience level:</strong> ${zodResult.data.experience}</p>
@@ -81,7 +81,7 @@ export async function POST(request: Request) {
       <p><strong>Willing to invest?</strong> ${zodResult.data.willingToInvest}</p>
     `,
     text: `
-      Someone just submitted a response to the consultation form!
+      You might have a client!
       Name: ${zodResult.data.name}
       Preferred contact: ${zodResult.data.preferredContactMethod} - ${zodResult.data.preferredContact}
       Experience level: ${zodResult.data.experience}
