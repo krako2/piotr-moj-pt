@@ -11,7 +11,8 @@ const TURNSTILE_SITE_KEY: string = "0x4AAAAAAFZlAkgclH6Mdtmj";
 
 export default function SummaryPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
-  const [processing, setProcessing] = useState<boolean>(true);
+  const [processing, setProcessing] = useState<boolean>(false);
+  const [submitEnabled, setSubmitEnabled] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -38,7 +39,7 @@ export default function SummaryPage() {
       sitekey: `${TURNSTILE_SITE_KEY}`,
       callback: function(token: string) {
         dispatch(setData({...data, token: token}));
-        setProcessing(false);
+        setSubmitEnabled(true);
       },
       // Makes Next.js stop bitching
       "error-callback": function() {
@@ -68,8 +69,11 @@ export default function SummaryPage() {
       </div>
       <div className="mt-5 flex justify-center">
         <Button onClick={() => dispatch(setPage(Page.WillingToInvest))}>Back</Button>
-        {processing ? <Button variant="processing">Submit</Button>
-          : <Button variant="special" onClick={sendData}>Submit</Button>}
+        {(() => {
+          if (processing) return <Button variant="processing">Submit</Button>;
+          else if (!submitEnabled) return <Button variant="disabled">Submit</Button>;
+          else return <Button variant="special" onClick={sendData}>Submit</Button>;
+        })()}
       </div>
       <div id="turnstile"
            className="mt-5 flex justify-center items-center"
