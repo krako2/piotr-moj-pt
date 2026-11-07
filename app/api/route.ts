@@ -61,7 +61,7 @@ export async function POST(request: Request) {
   // @ts-ignore
   // 'hostname' is just a property on the JSON object returned by the Turnstile server
   if (!expectedHostnames.has(turnstileResponseJSON.hostname)) {
-    return new Response("Why would you do this?", {
+    return new Response("Keep going, see what you can find.", {
       status: 403,
       headers: { "Content-Type": "application/json" },
     });
