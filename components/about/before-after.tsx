@@ -22,21 +22,22 @@ export default function BeforeAfter() {
   return (
     <BeforeAfterLoadContext value={{ ready, setReady }}>
       <div className={`flex justify-center items-center w-full opacity-0 ${ready === 2 ? "opacity-100 progress-photos-fade-in" : ""}`}>
-        <div className="flex flex-col lg:flex-row p-5 pb-0 bg-(--placeholder)">
-          <ProgressCard
-            src="/before.jpg"
-            alt="Old photo of Piotrek showing his gym progress"
-            width={beforePhotoWidth / sizeDivider}
-            height={beforePhotoHeight / sizeDivider}
-            caption="24 Feb 2020"
-          />
-          <ProgressCard
-            src="/after.jpg"
-            alt="Recent photo of Piotrek showing his gym progress"
-            width={afterPhotoWidth / sizeDivider}
-            height={afterPhotoHeight / sizeDivider}
-            caption="8 Sep 2026"
-          />
+        <div className="p-5 bg-(--placeholder)">
+          <div className="flex flex-col lg:flex-row ">
+            <ProgressCard
+              src="/before.jpg"
+              alt="Old photo of Piotrek showing his gym progress"
+              width={beforePhotoWidth / sizeDivider}
+              height={beforePhotoHeight / sizeDivider}
+            />
+            <ProgressCard
+              src="/after.jpg"
+              alt="Recent photo of Piotrek showing his gym progress"
+              width={afterPhotoWidth / sizeDivider}
+              height={afterPhotoHeight / sizeDivider}
+            />
+          </div>
+          <p className="mt-5 text-center">Me, 2020 -&gt; 2026</p>
         </div>
       </div>
     </BeforeAfterLoadContext>
