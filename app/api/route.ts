@@ -83,7 +83,7 @@ export async function POST(request: Request) {
     text: `
       You might have a client!
       Name: ${zodResult.data.name}
-      Preferred contact: ${zodResult.data.preferredContactMethod} - ${zodResult.data.preferredContact}
+      Preferred contact (${zodResult.data.preferredContactMethod}): ${zodResult.data.preferredContact}
       Experience level: ${zodResult.data.experience}
       Main goal: ${zodResult.data.goal}
       Biggest struggle: ${zodResult.data.biggestStruggle}
