@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   const token: string = zodResult.data.token;
   if (typeof token !== "string" || token.length === 0 || token.length > 2048 || expectedHostnames.size === 0) {
     return new Response("Stop messing with the token, asshole.", {
-      status: 403,
+      status: 400,
       headers: { "Content-Type": "application/json" },
     });
   }
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
 
   if (!turnstileResponse.ok) {
     return new Response("Couldn't verify your request. Maybe you're a bot or Cloudflare Turnstile failed.", {
-      status: 400,
+      status: 403,
       headers: { "Content-Type": "application/json" },
     });
   }
