@@ -34,7 +34,7 @@ export default function WhatYouGet() {
           <li className="mt-3">Personalised feedback videos</li>
           <li className="mt-3">Unlimited messaging in the app</li>
         </ul>
-        <p className="mt-3">Not ready yet? Grab <a className="text-green-400 font-semibold" href="https://drive.google.com/file/d/1AjESOjGaikgHVt6R8EM1O07VFQPQbTqW/view">The 3 Foundations</a> for free</p>
+        <p className="mt-3">Not ready yet? Grab <a className="text-green-400 font-semibold focus:outline-2" href="https://drive.google.com/file/d/1AjESOjGaikgHVt6R8EM1O07VFQPQbTqW/view">The 3 Foundations</a> for free</p>
       </section>
     </section>
   );
