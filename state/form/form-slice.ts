@@ -41,7 +41,7 @@ const initialState: FormState = {
     preferredContactMethod: "Email",
     preferredContact: "",
     experienceMethod: "", // Honeypot
-    experience: "Beginner (new to training)",
+    experience: "Beginner (under 1 year of consistent training)",
     goal: "",
     biggestStruggle: "",
     willingToInvest: "I'm interested but need more information",

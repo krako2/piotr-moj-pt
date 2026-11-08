@@ -9,6 +9,9 @@ import Footer from "@/components/footer";
 import ConsultationForm from "@/components/consultation/consultation-form";
 
 import StoreProvider from "@/state/store-provider";
+import WhatYouGet from "@/components/what-you-get";
+import Qualifications from "@/components/qualifications";
+import FAQ from "@/components/faq";
 
 export default function Home() {
   return (
@@ -18,8 +21,11 @@ export default function Home() {
         <AnimatedBackground />
         <MainContent>
           <Hero />
+          <WhatYouGet />
           <About />
+          <Qualifications />
           <Testimonials />
+          <FAQ />
           <Contact />
           <Footer />
         </MainContent>

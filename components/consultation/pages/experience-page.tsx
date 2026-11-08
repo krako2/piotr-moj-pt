@@ -43,9 +43,9 @@ export default function ExperiencePage() {
                 name="experience"
                 id="experience"
         >
-          <option value="Beginner (new to training)">Beginner (new to training)</option>
-          <option value="Some experience (0-1 years)">Some experience (0-1 years)</option>
-          <option value="Experienced (1+ years and ready to take it to the next level)">Experienced (1+ years and ready to take it to the next level)</option>
+          <option value="Beginner (under 1 year of consistent training)">Beginner (under 1 year of consistent training)</option>
+          <option value="Intermediate (1-3 years of consistent training)">Intermediate (1-3 years of consistent training)</option>
+          <option value="Advanced (3+ years of consistent training)">Advanced (3+ years of consistent training)</option>
         </select>
       </div>
       <div className="flex justify-center">
