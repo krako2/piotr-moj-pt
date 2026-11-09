@@ -10,7 +10,6 @@ import ConsultationForm from "@/components/consultation/consultation-form";
 
 import StoreProvider from "@/state/store-provider";
 import WhatYouGet from "@/components/what-you-get";
-import Qualifications from "@/components/qualifications";
 import FAQ from "@/components/faq";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
           <Hero />
           <WhatYouGet />
           <About />
-          <Qualifications />
           <Testimonials />
           <FAQ />
           <Contact />
