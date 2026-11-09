@@ -21,7 +21,7 @@ export default function BeforeAfter() {
 
   return (
     <BeforeAfterLoadContext value={{ ready, setReady }}>
-      <section className={`flex flex-col justify-center items-center p-5 w-full opacity-0 ${ready === 2 ? "opacity-100 progress-photos-fade-in" : ""}`}>
+      <section className={`p-5 w-full opacity-0 ${ready === 2 ? "opacity-100 progress-photos-fade-in" : ""}`}>
         <div className="p-5 bg-(--placeholder)">
           <div className="flex flex-col lg:flex-row">
             <ProgressCard
