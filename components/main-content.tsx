@@ -9,18 +9,19 @@ let lastScrollPosition: number = 0;
 
 export default function MainContent({ children }: {children: ReactNode }) {
   const showing = useSelector((state: RootState) => state.form.showing);
+  const privacyPolicyShowing = useSelector((state: RootState) => state.privacyPolicy.showing);
   const mainRef = useRef<HTMLElement>(null);
   
-  if (mainRef.current && showing) {
+  if (mainRef.current && (showing || privacyPolicyShowing)) {
     mainRef.current.style.top = `-${window.scrollY}px`;
     lastScrollPosition = window.scrollY;
   }
 
   useEffect(() => {
-    if (mainRef.current && !showing) {
+    if (mainRef.current && (!showing || !privacyPolicyShowing)) {
       window.scrollTo(0, lastScrollPosition);
     }
-  }, [showing]);
+  }, [showing, privacyPolicyShowing]);
 
-  return <main ref={mainRef} className={`${showing ? "fixed left-0 right-0" : ""}`}>{children}</main>;
+  return <main ref={mainRef} className={`${(showing || privacyPolicyShowing ) ? "fixed left-0 right-0" : ""}`}>{children}</main>;
 }
