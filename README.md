@@ -14,7 +14,7 @@ Docker will build the image. Once it's done, run:
 
 ``docker run --name piotr-moj-pt -d -p 3000:3000 piotr-moj-pt``
 
-This will start a container running the site. You can access it through your browser by navigating to `http://localhost:3000`. Once you're done, you can remove both the container and image by running:
+This will start a container for the site. You can access it through your browser by navigating to `http://localhost:3000`. Once you're done, you can remove both the container and image by running:
 
 Linux:
 
