@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
 // Edit
-const TURNSTILE_SITE_KEY: string = "0x4AAAAAAFZlAkgclH6Mdtmj";
+const TURNSTILE_SITE_KEY: string = "0x4AAAAAAF75p-C5HYfNwBoV";
 
 export default function SummaryPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
