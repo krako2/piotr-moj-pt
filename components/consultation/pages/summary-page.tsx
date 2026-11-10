@@ -56,7 +56,7 @@ export default function SummaryPage() {
       <div className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">Here's a summary of what you said</h1>
       </div>
-      <div className="mt-5 h-full max-h-70 overflow-y-scroll wrap-anywhere pr-5">
+      <div className="mt-5 h-full max-h-60 overflow-auto wrap-anywhere pr-5">
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Name</h2>
         <p>{data.name}</p>
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Preferred contact ({data.preferredContactMethod})</h2>
@@ -70,8 +70,8 @@ export default function SummaryPage() {
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Willing to invest?</h2>
         <p>{data.willingToInvest}</p>
       </div>
-      <p className="mt-5">By submitting this form, you agree to the <button className="text-green-400 hover:font-semibold" onClick={() => dispatch(show())}>privacy policy</button>.</p>
-      <div className="mt-5 flex justify-center">
+      <p className="mt-3 text-center">By submitting this form, you agree to the <button className="text-green-400 hover:font-semibold" onClick={() => dispatch(show())}>privacy policy</button>.</p>
+      <div className="mt-3 flex justify-center">
         <Button onClick={() => dispatch(setPage(Page.WillingToInvest))}>Back</Button>
         {(() => {
           if (processing) return <Button variant="processing">Submit</Button>;
@@ -80,7 +80,7 @@ export default function SummaryPage() {
         })()}
       </div>
       <div id="turnstile"
-           className="mt-5 flex justify-center items-center"
+           className="mt-3 flex justify-center items-center"
            data-sitekey={TURNSTILE_SITE_KEY}
            data-theme="dark"
            data-size="normal"
