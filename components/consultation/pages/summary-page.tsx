@@ -1,6 +1,7 @@
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
 import { Page, setPage, FormData, setFormMessage, setData, setOk } from "@/state/form/form-slice";
+import { show } from "@/state/privacy-policy/privacy-policy-slice";
 
 import { Button } from "@/components/ui/button";
 
@@ -11,6 +12,8 @@ const TURNSTILE_SITE_KEY: string = "0x4AAAAAAFZlAkgclH6Mdtmj";
 
 export default function SummaryPage() {
   const data: FormData = useSelector((state: RootState) => state.form.data);
+  const ok: boolean = useSelector((state: RootState) => state.form.ok);
+
   const [processing, setProcessing] = useState<boolean>(false);
   const [submitEnabled, setSubmitEnabled] = useState<boolean>(false);
 
@@ -53,7 +56,7 @@ export default function SummaryPage() {
       <div className="flex justify-center items-center text-center">
         <h1 className="text-4xl text-green-400 font-semibold">Here's a summary of what you said</h1>
       </div>
-      <div className="mt-5 h-full max-h-80 overflow-y-scroll wrap-anywhere pr-5">
+      <div className="mt-5 h-full max-h-70 overflow-y-scroll wrap-anywhere pr-5">
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Name</h2>
         <p>{data.name}</p>
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Preferred contact ({data.preferredContactMethod})</h2>
@@ -67,6 +70,7 @@ export default function SummaryPage() {
         <h2 className="my-2 text-2xl text-green-400 font-semibold">Willing to invest?</h2>
         <p>{data.willingToInvest}</p>
       </div>
+      <p className="mt-5">By submitting this form, you agree to the <button className="text-green-400 hover:font-semibold" onClick={() => dispatch(show())}>privacy policy</button>.</p>
       <div className="mt-5 flex justify-center">
         <Button onClick={() => dispatch(setPage(Page.WillingToInvest))}>Back</Button>
         {(() => {

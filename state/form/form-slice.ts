@@ -11,6 +11,7 @@ export enum Page {
   WillingToInvest,
   Summary,
   Confirmation,
+  PrivacyPolicy,
 };
 
 export type FormData = {

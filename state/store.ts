@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import formReducer from "@/state/form/form-slice";
+import privacyPolicyReducer from "@/state/privacy-policy/privacy-policy-slice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      form: formReducer
+      form: formReducer,
+      privacyPolicy: privacyPolicyReducer,
     }
   });
 };

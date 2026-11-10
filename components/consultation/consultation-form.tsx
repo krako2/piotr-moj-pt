@@ -2,7 +2,7 @@
 
 import { RootState } from "@/state/store";
 import { useSelector, useDispatch } from "react-redux";
-import { hide } from "@/state/form/form-slice";
+import { hide, setPage } from "@/state/form/form-slice";
 import { Page } from "@/state/form/form-slice";
 
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,10 @@ export default function ConsultationForm() {
     <div className="fixed top-0 flex justify-center items-center w-full h-full p-5 form-fade-in">
       <div className="flex flex-col justify-center items-center bg-(--placeholder) p-5 max-w-180 w-full max-h-180 h-full rounded-2xl">
         <div className="relative w-full h-10 overflow-y-clip">
-          <Button className="absolute right-0" onClick={() => dispatch(hide())}>Close</Button>
+          <Button className="absolute right-0"
+            onClick={() => dispatch(hide())}>
+              Close
+          </Button>
         </div>
         <div className="flex justify-center items-center w-full h-full overflow-auto">
           <div>

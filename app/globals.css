@@ -18,11 +18,27 @@ html {
 
 main {
   margin: 0 auto;
-  max-width: 60rem;
+  max-width: 80rem;
 }
 
 h1, h2 {
   font-family: Montserrat;
+}
+
+.filter-instagram:hover {
+  filter: invert(70%) sepia(100%) saturate(1352%) hue-rotate(305deg) brightness(100%) contrast(119%);
+}
+
+.filter-youtube:hover {
+  filter: invert(70%) sepia(100%) saturate(1352%) hue-rotate(330deg) brightness(100%) contrast(119%);
+}
+
+.filter-tiktok:hover {
+  filter: invert(40%) sepia(100%) saturate(1352%) hue-rotate(150deg) brightness(100%) contrast(119%);
+}
+
+.filter-facebook:hover {
+  filter: invert(70%) sepia(100%) saturate(1352%) hue-rotate(200deg) brightness(100%) contrast(119%);
 }
 
 @keyframes fade-in {

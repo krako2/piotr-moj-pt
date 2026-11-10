@@ -7,6 +7,7 @@ import Testimonials from "@/components/testimonials/testimonials";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import ConsultationForm from "@/components/consultation/consultation-form";
+import PrivacyPolicy from "@/components/consultation/privacy-policy";
 
 import StoreProvider from "@/state/store-provider";
 import WhatYouGet from "@/components/what-you-get";
@@ -28,6 +29,7 @@ export default function Home() {
           <Footer />
         </MainContent>
         <ConsultationForm />
+        <PrivacyPolicy />
       </StoreProvider>
     </>
   );
